@@ -40,3 +40,17 @@ app.get('/oauth', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// 👇 This is the missing piece
+app.get('/', (req, res) => {
+  res.send('✅ DocuSign integration server is running.');
+});
+
+// Your existing OAuth or DocuSign logic would go below...
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
